@@ -12,7 +12,7 @@ namespace CS321_W4D1_BookAPI.Models
         public int PublicationYear { get; set; }
 
         public int AuthorId { get; set; }
-        public Author Author { get; set; }
+        public Author Author { get; set; } // // string containing the author's full name
 
         public int PublisherId { get; set; }
         public Publisher Publisher { get; set; }
