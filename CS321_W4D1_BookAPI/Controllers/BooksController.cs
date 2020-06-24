@@ -81,5 +81,33 @@ namespace CS321_W4D1_BookAPI.Controllers
             _bookService.Remove(book);
             return NoContent();
         }
+
+        // GET api/author/{authorId}/books
+        // NOTE that the route specified in HttpGet begins with a forward slash.
+        // This overrides the Route("/api/[controller]") specified on the BooksController
+        // class.
+        [HttpGet("/api/authors/{authorId}/books")]
+        public IActionResult GetBooksForAuthor(int authorId)
+        {
+            var bookModels = _bookService
+                .GetBooksForAuthor(authorId)
+                .ToApiModels();
+
+            return Ok(bookModels);
+        }
+
+        // GET api/publisher/{publisherId}/books
+        // NOTE that the route specified in HttpGet begins with a forward slash.
+        // This overrides the Route("/api/[controller]") specified on the BooksController
+        // class.
+        [HttpGet("/api/publishers/{publisherId}/books")]
+        public IActionResult GetBooksForPublisher(int publisherId)
+        {
+            var bookModels = _bookService
+                .GetBooksForPublisher(publisherId)
+                .ToApiModels();
+
+            return Ok(bookModels);
+        }
     }
 }

@@ -25,7 +25,10 @@ namespace CS321_W4D1_BookAPI.ApiModels
                 // Author. Use null if the Author is null.
                 Author = book.Author != null
                      ? book.Author.LastName + ", " + book.Author.FirstName
-                     : null
+                     : null,
+                Publisher = book.Publisher != null
+                     ? book.Publisher.Name + ", " + book.Publisher.HeadQuartersLocation
+                     : null,
             };
         }
 
